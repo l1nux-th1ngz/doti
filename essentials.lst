@@ -1,4 +1,5 @@
 alacritty
+kitty
 bluez
 bluez-utils
 cargo
@@ -14,10 +15,11 @@ networkmanager
 net-tools
 pamixer
 polkit-gnome
+polkit-kde-agent
 slurp-git
 tree
 unzip
 wget
 wl-clipboard
-xdg-user-dirs
+xdg-user-dirs-gtk
 zsh

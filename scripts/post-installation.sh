@@ -10,6 +10,7 @@ TASKS=(
 	"grub"
 	"nerdfonts"
 	"ranger"
+ "dolphin"
 )
 
 function fnc_bluetooth() {

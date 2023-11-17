@@ -9,7 +9,7 @@ TASKS=(
 	"bluetooth"
 	"grub"
 	"nerdfonts"
-	"thunar"
+	"ranger"
 )
 
 function fnc_bluetooth() {
@@ -38,10 +38,10 @@ function fnc_grub() {
 		yay -S os-prober
 
 		sudo sed -i 's\GRUB_DEFAULT=0\GRUB_DEFAULT=saved\g' /etc/default/grub
-		sudo sed -i 's\GRUB_TIMEOUT=5\GRUB_TIMEOUT=10\g' /etc/default/grub
+		sudo sed -i 's\GRUB_TIMEOUT=5\GRUB_TIMEOUT=0\g' /etc/default/grub
 		sudo sed -i 's\#GRUB_SAVEDEFAULT=true\GRUB_SAVEDEFAULT=true\g' /etc/default/grub
 		sudo sed -i 's\#GRUB_DISABLE_OS_PROBER=false\GRUB_DISABLE_OS_PROBER=false\g' /etc/default/grub
-		sudo sed -i 's\GRUB_GFXMODE=auto\GRUB_GFXMODE=800x600\g' /etc/default/grub
+		sudo sed -i 's\GRUB_GFXMODE=auto\GRUB_GFXMODE=1920x1080\g' /etc/default/grub
 		sudo sed -i 's\#GRUB_THEME="/path/to/gfxtheme"\GRUB_THEME="/boot/grub/themes/CyberEXS/theme.txt"\g' /etc/default/grub
 
 		[[ ! -d "/boot/grub/themes/CyberEXS" ]] && \
@@ -65,14 +65,14 @@ function fnc_nerdfonts() {
 	fi
 }
 
-function fnc_thunar() {
+function fnc_ranger() {
 	if [[ "$1" = "status" ]]; then
-		[[ ! "$(yay -Q | grep thunar-volman)" = "" ]] && echo "" || echo ""
+		[[ ! "$(yay -Q | grep ranger)" = "" ]] && echo "" || echo ""
 		return
 	fi
 
 	if [[ "$1" = "install" ]]; then
-		yay -S thunar thunar-volman gvfs-git xdg-user-dirs tumbler
+		yay -S dolphin kio-admin gvfs-git xdg-user-dirs tumbler
 		xdg-user-dirs-update
 	fi
 }
